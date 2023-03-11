@@ -1,0 +1,27 @@
+.profile-button:hover {
+  -webkit-transition: background 0.5s;
+  transition: background 0.5s;
+  background: var(--grey-dark);
+}
+
+.profile-button-first {
+  border-top: 3px solid var(--g-plus-light) !important;
+}
+.profile-button-second {
+  border-top: 3px solid var(--green-light) !important;
+}
+.profile-button-third {
+  border-top: 3px solid var(--yellow) !important;
+}
+
+.profile-button-first:hover a svg {
+  fill: var(--g-plus-light);
+}
+
+.profile-button-second:hover a svg {
+  fill: var(--green-light);
+}
+
+.profile-button-third:hover form button div svg {
+  fill: var(--yellow);
+}
