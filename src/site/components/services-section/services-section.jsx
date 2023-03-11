@@ -9,29 +9,27 @@ const ServicesSection = () => {
   const sliderInterval = 3000;
   const [state, dispatch] = useStore(false);
   const [isLoading, setIsLoading] = useState(false);
-  let [isInitiated, setIsInitiated] = useState(false);
   useEffect(() => {
     if (!state.clinic_services_store.isInitiated) {
       setIsLoading(true);
       httpGET(api.clinic_services.get_all_services)
-      .then((response) => {
-        if (response.status === 401) {
-          alert("Please login first");
-          dispatch("LOGOUT");
-        }
-        if (response.status === 200) {
-          response.json().then((data) => {            
-            dispatch("INITIATE_CLINIC_SERVICES", data);
-          });
-        }
+        .then((response) => {
+          if (response.status === 401) {
+            alert("Please login first");
+            dispatch("LOGOUT");
+          }
+          if (response.status === 200) {
+            response.json().then((data) => {
+              dispatch("INITIATE_CLINIC_SERVICES", data);
+            });
+          }
           setIsLoading(false);
         })
         .catch((c) => {
-          alert("Network error while fetching clinic services !!");
+          alert("خطأ بالشبكة أثناء تحميل الخدمات.");
           setIsLoading(false);
         });
     }
-    setIsInitiated(true);
   }, []);
   if (isLoading) return <SiteLoadindSpiner text="تحميل الخدمات" />;
   else
@@ -51,11 +49,10 @@ const ServicesSection = () => {
                   return (
                     <div
                       key={srvc.id}
-                      className={`carousel-item ${
-                        state.clinic_services_store.services[0].id === srvc.id
+                      className={`carousel-item ${state.clinic_services_store.services[0].id === srvc.id
                           ? "active"
                           : ""
-                      }`}
+                        }`}
                       data-bs-interval={sliderInterval}
                     >
                       <ServiceItem service={srvc} />
@@ -90,7 +87,7 @@ const ServicesSection = () => {
                 <span className="visually-hidden">Next</span>
               </button>
             </div>
-            </section>
+          </section>
         )}
       </Fragment>
     );

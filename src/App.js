@@ -37,7 +37,7 @@ function App() {
         }
       })
       .catch((c) => {
-        alert("Network error while fetching metaDatas !!");
+        alert("خطأ بالشبكة أثناء تحميل بيانات العيادة");
       });
   }
 

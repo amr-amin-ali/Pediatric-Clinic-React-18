@@ -33,7 +33,7 @@ const ViewArticle = () => {
         setIsLoading(false);
       })
       .catch((c) => {
-        alert("Network error !!!");
+        alert("خطأ بالشبكة أثناء تحميل المقالة");
         setIsLoading(false);
       });
     setRequested(true);

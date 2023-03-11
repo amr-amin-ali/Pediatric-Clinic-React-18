@@ -6,7 +6,7 @@ import { api } from "../../utility/api";
 import SiteLoadindSpiner from "./site-loading-spinner";
 
 const Slider = () => {
-  // return;
+
   const [state, dispatch] = useStore(false);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -18,12 +18,13 @@ const Slider = () => {
           if (response.status === 200) {
             response.json().then((data) => {
               dispatch("INITIATE_SLIDER_IMAGES", data);
-              setIsLoading(false);
             });
           }
+          setIsLoading(false);
         })
         .catch((c) => {
-          alert("Network error while fetching metaDatas !!");
+          alert("خطأ بالشبكة أثناء تحميل صور المعرض");
+          setIsLoading(false);
         });
     }
   }, []);
@@ -54,7 +55,7 @@ const Slider = () => {
             </div>
             <div
               className="carousel-inner home-slider-desktop"
-              // style={{ height: "33vh" }}
+            // style={{ height: "33vh" }}
             >
               {state.sliderImages.images.map((img) => (
                 <div

@@ -30,7 +30,7 @@ const ArticlesSection = () => {
         .catch((c) => {
           console.log(c);
 
-          alert("Network error while fetching articles !!");
+          alert("خطأ بالشبكة أثناء تحميل مقالات الدكتوره");
           setIsLoading(false);
         });
     }

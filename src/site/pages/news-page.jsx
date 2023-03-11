@@ -31,7 +31,7 @@ const NewsPage = () => {
           setIsLoading(false);
         })
         .catch((c) => {
-          alert("Network error while fetching news !!");
+          alert("خطأ بالشبكة أثناء تحميل الأخبار");
           setIsLoading(false);
         });
     }

@@ -29,7 +29,7 @@ const NewsSection = () => {
           setIsLoading(false);
         })
         .catch((c) => {
-          alert("Network error while fetching news !!");
+          alert("خطأ بالشبكة أثناء تحميل أخبار العيادة");
           setIsLoading(false);
         });
     }
